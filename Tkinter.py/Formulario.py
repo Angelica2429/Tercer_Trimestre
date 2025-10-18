@@ -1,12 +1,22 @@
-from tkinter import *
-ventana = Tk()
+import tkinter as tk
+from tkinter import messagebox 
+ventana = tk.Tk()
 ventana.geometry("400x300")
-ventana.title("Formulario")
-ventana.configure(bg ="lightblue")
-ventana.option_add("*Font", "Georgia 36")
-titulo=Label(ventana,text="Formulario",bg="lightblue",anchor="n")
-titulo.pack()
+ventana.title("Formulario de registro")
+ventana.config(bg ="lightblue")
+tk.Label(ventana, text="Nombre:",bg="lightblue").grid(row=0,column=0,padx=15,pady=10,sticky="w")
+dato_nombre=tk.Entry(ventana)
+dato_nombre.grid(row=0,column=1)
+tk.Label(ventana,text="Edad:",bg="lightblue").grid(row=1,column=0,padx=15,pady=10,sticky="w")
+dato_Edad=tk.Entry(ventana)
+dato_Edad.grid(row=1,column=1)
+tk.Label(ventana,text="Correo Electronico:",bg="lightblue").grid(row=2,column=0,padx=15,pady=10,sticky="w")
+dato_correo=tk.Entry(ventana)
+dato_correo.grid(row=2,column=1)
+def guardar_datos():
+    nombre = dato_nombre.get()
+    Edad = dato_Edad.get()
+    correo = dato_correo.get()
+    messagebox.showinfo("Datos guardados con exito!!!", f"Tu nombre es {nombre}, tienes {Edad} años y tu correo es {correo}")
+tk.Button(ventana,text="Guardar datos", command=guardar_datos).grid(row=3,column=0,padx=15,pady=10)
 ventana.mainloop()
-
-
-
